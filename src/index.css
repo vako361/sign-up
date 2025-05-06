@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family:poppins, sans-serif;
+  min-width: 100%;
+  min-height: 100%;
+  background-image: url('/images/bg-intro-mobile.png');
+  background-color: #FF7979;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+html{
+  scroll-behavior: smooth;
+  width: 100vh;
+  height: 100vh;
+  
+}
+.txt-wrap{
+color: #FFF;
+text-align: center;
+font-size: 15px;
+font-weight: 700;
+line-height: 26px; 
+letter-spacing: 0.268px;
+width: 190px;
+}
+.txt-wrap span{
+color: #FFF;
+font-family: Poppins;
+font-size: 15px;
+font-weight: 400;
+line-height: 26px;
+letter-spacing: 0.268px;
+}
+.btn{
+  border-radius: 5px;
+  background: #38CC8B; 
+  box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.09) inset;
+  width: 279px;
+  height: 56px;
+  border: none;
+  color: #FFF;
+}
+.txt-wraper{
+  width: 250px;
+  color: #BAB7D4;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 190.909% */
+  margin-bottom: 10px;
+}
+.txt-wraper span{
+  color: #FF7979;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 21px;
+}
