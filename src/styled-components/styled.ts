@@ -96,13 +96,23 @@ padding: 24px 12px;
   padding: 24px 40px;
 }
 `
-export const Input = styled.input` 
+export const Input = styled.input<{error: Boolean}>` 
   width: 90%;
   height: 56px;
   border-radius: 5px;
   padding-left: 20px;
-  border: none ;
+  border: none;
   background: #fff;
+  background-image: ${props => props.error ? "url('/images/icon-error.svg')": "none"};
   background-repeat: no-repeat;
   background-position: 95% center;
+`;
+export const Error = styled.p`
+color: #FF7979;
+text-align: right;
+font-family: Poppins;
+font-size: 11px;
+font-style: italic;
+font-weight: 500;
+margin-left: 10px;
 `;

@@ -1,7 +1,7 @@
 import { StyledSignUp } from '../styled-components/styled'
 import { Input } from '../styled-components/styled'
 import { useState } from 'react'
-
+import { Error } from '../styled-components/styled'
 export default function SignUp() {
     const [error, setError] = useState<{firstName:boolean;lastName:boolean;mail:boolean,password:boolean}>({
      firstName: false ,
@@ -29,6 +29,9 @@ const handleSubmit = (e: React.FormEvent) => {
     }
     else if (password.trim() === "") {
         setError((prev) => ({ ...prev, password: true }))
+    } 
+    else if (!Mail.test(mail)) {
+        setError((prev) => ({ ...prev, mail: true }))
     }
     else {
         setError({
@@ -40,18 +43,33 @@ const handleSubmit = (e: React.FormEvent) => {
         console.log("Form submitted successfully")
     }
 };
+const Mail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 return (
     <div>
         <StyledSignUp>
-            <Input type="text" value={change.firstName} placeholder='First Name' onChange={(e) => setChange({...change, firstName: e.target.value})}/>
-            <Input type="text" value={change.lastName} placeholder='Last Name' onChange={(e) => setChange({...change, lastName: e.target.value})}/>
-            <Input type="email" value={change.mail} placeholder='Email Address' onChange={(e) =>setChange({...change, mail: e.target.value})}/>
+            <Input  error={error.firstName} type="text" value={change.firstName} placeholder='First Name' onChange={(e) => {setChange({...change, firstName: e.target.value}); 
+            setError({...error, firstName: false})}}/>
+            {error.firstName && <Error>First Name cannot be empty</Error>}
+            <Input  error={error.lastName} type="text" value={change.lastName} placeholder='Last Name' onChange={(e) => {setChange({...change, lastName: e.target.value});
+            setError({...error, lastName: false}) }}/>
+            {error.lastName && <Error>Last Name cannot be empty</Error>}
+            <Input  
+            error={error.mail} 
+            type="email"
+            value={change.mail} 
+            placeholder='Email Address' 
+            onChange={(e) => {setChange({...change, mail: e.target.value}); 
+            setError({...error, mail: false});}}/>
+            {error.mail && <Error>Looks like this is not an email</Error>}
             <Input 
+                error={error.password}
                 type="password" 
                 value={change.password}
                 placeholder='Password' 
-                onChange={(e) => setChange({...change, password: e.target.value})} 
+                onChange={(e) => {setChange({...change, password: e.target.value}); 
+                setError({...error, password: false})}} 
             />
+            {error.password && <Error>Password cannot be empty</Error>}
             <button onClick={handleSubmit} className='btn'>Claim your free trial</button>
             <p className='txt-wraper'>By clicking the button, you are agreeing to our <span>Terms and Services</span></p>
         </StyledSignUp>
