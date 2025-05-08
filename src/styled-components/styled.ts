@@ -1,4 +1,6 @@
 import styled from "styled-components";
+
+
 export const Wraper = styled.div`
   display: flex;
   justify-content: center;
@@ -6,6 +8,14 @@ export const Wraper = styled.div`
   height: 100vh;
   flex-direction: column;
   margin-top: 50%;
+  
+  @media (min-width: 1000px) {
+    flex-direction:row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50%;
+    width: 100vh;
+  }
 `
 export const Text = styled.div`
 display: flex;
@@ -16,6 +26,14 @@ height: auto;
 align-items: center;
 justify-content: center;
 margin-bottom: 64px;
+@media (min-width: 1000px) {
+  margin-right: 45px;
+  margin-left:165px;
+  width: 540px;
+  gap:10px;
+  height: 220px;
+  width: 580px;
+}
 `
 export const Title = styled.h1`
 color: #fff;
@@ -24,8 +42,15 @@ font-weight: 500;
 line-height: 26px;
 width: 100%;
 text-align: center;
-
-`
+@media (min-width: 1000px) {
+font-size: 50px;
+font-weight: 700;
+line-height: 55px;
+width: 580px;
+text-align: left;
+letter-spacing: -0.521px;
+}
+` 
 export const Description = styled.p`
 color: #FFF;
 text-align: center;
@@ -33,7 +58,14 @@ font-size: 16px;
 font-weight: 500;
 line-height: 26px;
 width: 100%;
-`
+@media (min-width: 1000px) {
+font-size: 18px;
+text-align: left;
+width: 580px;
+font-size: 16px;
+font-weight: 500;
+line-height: 26px;
+}`
 export const Plan = styled.div`
 display: flex;
 flex-direction: column;
@@ -57,14 +89,20 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 gap: 16px;
-padding-top: 24px;
+padding: 24px 12px;
+@media (min-width: 1000px) {
+  width: 540px;
+  height: 500px;
+  padding: 24px 40px;
+}
 `
-export const Input = styled.input<{ $error?: boolean }>`
-width: 279px;
-height: 56px;
-border-radius: 5px;
-border: 1px solid #DEDEDE;
-background: #FFF;
-padding-left: 20px;
-
-`
+export const Input = styled.input` 
+  width: 90%;
+  height: 56px;
+  border-radius: 5px;
+  padding-left: 20px;
+  border: none ;
+  background: #fff;
+  background-repeat: no-repeat;
+  background-position: 95% center;
+`;

@@ -44,9 +44,14 @@ return (
     <div>
         <StyledSignUp>
             <Input type="text" value={change.firstName} placeholder='First Name' onChange={(e) => setChange({...change, firstName: e.target.value})}/>
-            <Input type="text" placeholder='Last Name' onChange={(e) => setChange({...change, lastName: e.target.value})}/>
-            <Input type="email" placeholder='Email Address' onChange={(e) =>setChange({...change, mail: e.target.value})}/>
-            <Input type="password" placeholder='Password' onChange={(e) => setChange({...change, password: e.target.value})} />
+            <Input type="text" value={change.lastName} placeholder='Last Name' onChange={(e) => setChange({...change, lastName: e.target.value})}/>
+            <Input type="email" value={change.mail} placeholder='Email Address' onChange={(e) =>setChange({...change, mail: e.target.value})}/>
+            <Input 
+                type="password" 
+                value={change.password}
+                placeholder='Password' 
+                onChange={(e) => setChange({...change, password: e.target.value})} 
+            />
             <button onClick={handleSubmit} className='btn'>Claim your free trial</button>
             <p className='txt-wraper'>By clicking the button, you are agreeing to our <span>Terms and Services</span></p>
         </StyledSignUp>
